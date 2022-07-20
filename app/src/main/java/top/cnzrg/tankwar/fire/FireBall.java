@@ -81,24 +81,20 @@ public class FireBall {
     }
 
     public void move() {
-        new Thread(new Runnable() {
-            public void run() {
-                int i = 0;
-                for (; ; ) {
-                    if (i < 10) {
-                        i++;
-                        FireBall.this.mHandler.post(new Runnable() {
-                            public void run() {
-                                FireBall.this.move(100);
-                                FireBall.this.moveRect();
-                            }
-                        });
-                        try {
-                            Thread.sleep(100L);
-                        } catch (InterruptedException localInterruptedException) {
-                            for (; ; ) {
-                                localInterruptedException.printStackTrace();
-                            }
+        new Thread(() -> {
+            int i = 0;
+            for (; ; ) {
+                if (i < 10) {
+                    i++;
+                    FireBall.this.mHandler.post(() -> {
+                        FireBall.this.move(100);
+                        FireBall.this.moveRect();
+                    });
+                    try {
+                        Thread.sleep(100L);
+                    } catch (InterruptedException localInterruptedException) {
+                        for (; ; ) {
+                            localInterruptedException.printStackTrace();
                         }
                     }
                 }
