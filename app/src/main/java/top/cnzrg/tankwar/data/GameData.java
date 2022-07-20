@@ -1,9 +1,6 @@
 package top.cnzrg.tankwar.data;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.media.MediaPlayer;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -18,7 +15,7 @@ public class GameData {
     public static boolean QUITGAME = false;
     public static int screenHeight;
     public static int screenWidth;
-    private static ArrayList<Tank> tanks = new ArrayList();
+    private static final ArrayList<Tank> tanks = new ArrayList();
 
     public static void addOtherTank(Tank paramTank) {
         tanks.add(paramTank);
@@ -41,7 +38,7 @@ public class GameData {
         BotTank tank = new BotTank(imageView, activity);
         GameData.addOtherTank(tank);
 
-        RelativeLayout layout = (RelativeLayout) activity.findViewById(R.id.al_game_scene);
+        RelativeLayout layout = activity.findViewById(R.id.al_game_scene);
         layout.addView(imageView);
 
         // 新BOT位置

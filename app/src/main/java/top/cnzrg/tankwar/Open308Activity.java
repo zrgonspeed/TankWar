@@ -16,7 +16,7 @@ import android.view.WindowManager;
 public class Open308Activity extends Activity {
     // 动态跟着类名改 TAG
     private static final String TAG = Open308Activity.class.getSimpleName();
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
 
     @Override
@@ -33,7 +33,6 @@ public class Open308Activity extends Activity {
 
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
 
         init();

@@ -14,16 +14,16 @@ public class BotTank
     private static final String TAG = "BotTank";
     private int direct = 0;
 
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     private int moveCount = 0;
-    private int moveDist = 20;
-    private int moveInterval = 50;
-    private Random random = new Random();
+    private final int moveDist = 20;
+    private final int moveInterval = 50;
+    private final Random random = new Random();
     private boolean start = false;
-    private int[] lbr = {2, 3, 4};
-    private int[] ltr = {1, 2, 3};
-    private int[] tlb = {1, 2, 4};
-    private int[] trb = {1, 3, 4};
+    private final int[] lbr = {2, 3, 4};
+    private final int[] ltr = {1, 2, 3};
+    private final int[] tlb = {1, 2, 4};
+    private final int[] trb = {1, 3, 4};
 
     public BotTank(View paramView, Activity paramActivity) {
         super(paramView, paramActivity);

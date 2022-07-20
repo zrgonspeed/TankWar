@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 
 import java.util.ArrayList;
 
@@ -16,9 +15,9 @@ public class FireBall {
     private static final String TAG = "FireBall";
     public int dx;
     public int dy;
-    private ImageView imageView;
-    private Handler mHandler = new Handler();
-    private Rect rect1;
+    private final ImageView imageView;
+    private final Handler mHandler = new Handler();
+    private final Rect rect1;
     private Tank tank;
 
     public FireBall(ImageView paramImageView) {
