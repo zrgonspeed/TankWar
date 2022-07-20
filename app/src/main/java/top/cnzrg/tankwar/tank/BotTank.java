@@ -2,6 +2,7 @@ package top.cnzrg.tankwar.tank;
 
 import android.app.Activity;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 
@@ -103,11 +104,8 @@ public class BotTank
                         }
 
                     });
-                    try {
-                        Thread.sleep(moveInterval);
-                    } catch (InterruptedException localInterruptedException) {
-                        localInterruptedException.printStackTrace();
-                    }
+
+                    SystemClock.sleep(moveInterval);
                 }
 
             }
@@ -116,11 +114,7 @@ public class BotTank
         new Thread(() -> {
             while (!isQuitScene() && !GameData.QUITGAME) {
                 mHandler.post(() -> openFire());
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                SystemClock.sleep(500);
             }
         }).start();
     }

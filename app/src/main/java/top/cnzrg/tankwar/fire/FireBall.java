@@ -2,6 +2,7 @@ package top.cnzrg.tankwar.fire;
 
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -80,25 +81,16 @@ public class FireBall {
         isColl();
     }
 
-    public void move() {
+    public void move(Tank.FireBallCallBack fireBallCallBack) {
         new Thread(() -> {
-            int i = 0;
-            for (; ; ) {
-                if (i < 10) {
-                    i++;
-                    FireBall.this.mHandler.post(() -> {
-                        FireBall.this.move(100);
-                        FireBall.this.moveRect();
-                    });
-                    try {
-                        Thread.sleep(100L);
-                    } catch (InterruptedException localInterruptedException) {
-                        for (; ; ) {
-                            localInterruptedException.printStackTrace();
-                        }
-                    }
-                }
+            for (int i = 0; i < 10; i++) {
+                FireBall.this.mHandler.post(() -> {
+                    FireBall.this.move(100);
+                    FireBall.this.moveRect();
+                });
+                SystemClock.sleep(100);
             }
+            fireBallCallBack.onFinish();
         }).start();
     }
 
