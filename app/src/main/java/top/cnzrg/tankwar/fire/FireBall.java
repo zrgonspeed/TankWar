@@ -83,12 +83,12 @@ public class FireBall {
 
     public void move(Tank.FireBallCallBack fireBallCallBack) {
         new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 30; i++) {
                 FireBall.this.mHandler.post(() -> {
-                    FireBall.this.move(100);
+                    FireBall.this.move(50);
                     FireBall.this.moveRect();
                 });
-                SystemClock.sleep(100);
+                SystemClock.sleep(30);
             }
             fireBallCallBack.onFinish();
         }).start();

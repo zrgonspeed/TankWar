@@ -30,7 +30,7 @@ public class GameData {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 
         imageView.setLayoutParams(layoutParams);
-        imageView.setBackground(activity.getResources().getDrawable(R.drawable.tank_gzl).getConstantState().newDrawable());
+        imageView.setBackground(activity.getResources().getDrawable(R.drawable.ball_old).getConstantState().newDrawable());
 
         layoutParams.width = 200;
         layoutParams.height = 200;
