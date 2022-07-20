@@ -5,15 +5,29 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 
+import top.cnzrg.tankwar.MainActivity;
 import top.cnzrg.tankwar.R;
 
 public class MusicService extends Service {
-
-    // 声明MediaPlayer对象
     private MediaPlayer mediaPlayer;
-
-    // action声明
     public static final String ACTION_MUSIC = "zrg308666";
+    private static Intent intent;
+
+    public static void startPlayMusic(MainActivity activity) {
+        if (intent == null) {
+            intent = new Intent(activity, MusicService.class);
+            intent.setAction(MusicService.ACTION_MUSIC);
+            activity.startService(intent);
+        }
+    }
+
+    public static void stopService(MainActivity activity) {
+        if (intent != null) {
+            // 对于intentService，这一步可能是多余的
+            activity.stopService(intent);
+        }
+
+    }
 
     @Override
     public void onCreate() {
